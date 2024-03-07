@@ -9,18 +9,14 @@ function onLoginSubmit(event){
     event.preventDefault();
     loginForm.classList.add("hidden");
     const userName = loginInput.value;
+    localStorage.setItem("username", userName);
     console.log(userName);
 
     greeting.innerText = "Hello " + userName;
     greeting.innerText = `Hello ${username}`;
     
     greeting.classList.remove(HIDDEN_CLASSNAME);
-    
-    // if(userName === ""){
-    //     alert("please write your name.");
-    // }else if(userName.length > 15){
-    //     alert("your name is too long.")
-    // }
+
     
 }
 
@@ -32,4 +28,18 @@ function onLoginSubmit(event){
 
 // }
 
+
 loginForm.addEventListener("submit", onLoginSubmit);
+
+
+const savedUsername = localStorage.getItem("username");
+
+if (savedUsername === null){
+    //show the form
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", onLoginSubmit);
+} else {
+    //show the greeting
+    greeting.innerText = `Hello ${savedUsername}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+}

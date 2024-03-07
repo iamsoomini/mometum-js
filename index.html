@@ -3,15 +3,23 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width"/>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="css/style.css" />
         <title>Momentum App</title>
     </head>
     <body>
-        <form id="login-form">
+        <form id="login-form" class="hidden">
          <input required maxlength="15" type="text" id="submit" placeholder="what is your name?"/>
          <input type="submit" value="Log In"/>
         </form>
+        <h2 id="clock" >00:00:00</h2>
         <h1 id="greeting" class="hidden"></h1>
-        <script src="app.js"></script>
+        <div id="quote">
+            <span>quote</span>
+            <span>author</span>
+        </div>
+        <script src="js/greeting.js"></script>
+        <script src="js/clock.js"></script>
+        <script src="js/quotes.js"></script>
+        <script src="js/background.js"></script>
     </body>
 </html>
